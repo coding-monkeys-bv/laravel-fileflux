@@ -2,8 +2,12 @@
 
 namespace Codingmonkeys\FileFlux;
 
+use Illuminate\Support\Facades\Http;
+
 class FileFlux
 {
+    const API_ENDPOINT = 'https://converter.dev1.codingmonkeys.nl/api/v1/tasks';
+
     protected $project;
 
     protected $webhook;
@@ -14,30 +18,30 @@ class FileFlux
 
     protected $target;
 
-    public function project($id = null)
+    public function project($project = null)
     {
-        $this->project = $id ?? config('fileflux.project');
+        $this->project = $project ?? config('file-flux.project_id');
 
         return $this;
     }
 
-    public function webhook(string $url = null)
+    public function webhook(?string $url = null)
     {
-        $this->webhook = $url ?? config('fileflux.webhook');
+        $this->webhook = $url ?? config('app.url').'/file-flux/webhooks';
 
         return $this;
     }
 
-    public function workflow()
+    public function workflow(string $workflow)
     {
-        $this->workflow = '';
+        $this->workflow = $workflow;
 
         return $this;
     }
 
-    public function source()
+    public function source(string $source)
     {
-        $this->source = '';
+        $this->source = $source;
 
         return $this;
     }
@@ -54,13 +58,18 @@ class FileFlux
     public function convert()
     {
         // Actual processing logic
-        return [
-            'project' => $this->project,
+        $data = [
+            'project_id' => $this->project,
             'webhook' => $this->webhook,
             'workflow' => $this->workflow,
             'source' => $this->source,
             'target' => $this->target,
         ];
+
+        Http::withToken(config('file-flux.api_key'))
+            ->retry(3)
+            ->acceptJson()
+            ->post(self::API_ENDPOINT, $data);
     }
 
     protected function validateTargetConfig(array $config)
@@ -68,7 +77,7 @@ class FileFlux
         $requiredKeys = ['extension', 'filename'];
 
         foreach ($requiredKeys as $key) {
-            if (!isset($config[$key])) {
+            if (! isset($config[$key])) {
                 throw new \InvalidArgumentException("Target configuration must include '{$key}'");
             }
         }
