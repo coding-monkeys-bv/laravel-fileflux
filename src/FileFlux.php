@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class FileFlux
 {
-    const API_ENDPOINT = 'https://converter.dev1.codingmonkeys.nl/api/v1/tasks';
+    const API_ENDPOINT = 'https://file-flux.dev1.codingmonkeys.nl/api/v1/tasks';
 
     protected $project;
 
