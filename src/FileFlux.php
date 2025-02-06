@@ -18,6 +18,10 @@ class FileFlux
 
     protected $target;
 
+    protected $targetPreset;
+
+    protected $usingTargetPreset = false;
+
     public function project($project = null)
     {
         $this->project = $project ?? config('file-flux.project_id');
@@ -46,11 +50,34 @@ class FileFlux
         return $this;
     }
 
-    public function target(array $config = [])
+    public function target($config)
     {
-        $this->validateTargetConfig($config);
+        if ($this->usingTargetPreset) {
+            if (is_string($config)) {
+                $config = ['filename' => $config];
+            } else if (! is_array($config)) {
+                throw new \InvalidArgumentException("Target configuration must be a string when using a preset.");
+            }
 
+            $config = array_merge($this->targetPreset['target'], $config);
+
+        } else {
+            if (! is_array($config)) {
+                throw new \InvalidArgumentException("Target configuration must be an array when NOT using a preset.");
+            }
+        }
+
+        $this->validateTargetConfig($config);
         $this->target = $config;
+
+        return $this;
+    }
+
+    public function targetPreset(?string $preset = null)
+    {
+        $this->targetPreset = config('file-flux.target_presets.'.$preset) ?? null;
+
+        $this->usingTargetPreset = $this->targetPreset !== null;
 
         return $this;
     }

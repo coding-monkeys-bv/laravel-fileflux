@@ -17,4 +17,15 @@ return [
     'webhook' => [
         'signature' => env('FILE_FLUX_WEBHOOK_SIGNATURE'),
     ],
+
+    'target_presets' => [
+        'my-preset' => [
+            'target' => [
+                'extension' => 'wav',
+                'channels' => 2,
+                'bitrate' => 128,
+            ]
+        ]
+    ]
+
 ];
