@@ -11,12 +11,9 @@ class FileFluxServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/file-flux.php' => config_path('file-flux.php'),
-            ], 'config');
-        }
+        $this->publishes([
+            __DIR__.'/../config/file-flux.php' => config_path('file-flux.php'),
+        ], 'config');
     }
 
     /**
