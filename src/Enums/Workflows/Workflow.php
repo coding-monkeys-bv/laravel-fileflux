@@ -21,11 +21,6 @@ enum Workflow: string
                 'target.bitrate' => ['required', Rule::enum(Bitrate::class)],
                 'target.filename' => ['required', 'string', 'max:100'],
                 'target.watermark' => ['sometimes', 'string', 'max:100'],
-                'target.waveform' => ['sometimes', 'array'],
-                'target.waveform.width' => ['sometimes', 'integer', 'min:100', 'max:3000'],
-                'target.waveform.height' => ['sometimes', 'integer', 'min:100', 'max:1000'],
-                'target.waveform.bg_color' => ['sometimes', 'string', 'regex:/^#[a-fA-F0-9]{6}$/'],
-                'target.waveform.fg_color' => ['sometimes', 'string', 'regex:/^#[a-fA-F0-9]{6}$/'],
             ],
         ];
     }
