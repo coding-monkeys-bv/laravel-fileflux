@@ -12,7 +12,7 @@ class FileFluxServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/file-flux.php' => config_path('file-flux.php'),
+            __DIR__.'/../config/fileflux.php' => config_path('fileflux.php'),
         ], 'config');
     }
 
@@ -22,10 +22,10 @@ class FileFluxServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/file-flux.php', 'file-flux');
+        $this->mergeConfigFrom(__DIR__.'/../config/fileflux.php', 'fileflux');
 
         // Register the main class to use with the facade
-        $this->app->singleton('file-flux', function () {
+        $this->app->singleton('fileflux', function () {
             return new FileFlux;
         });
     }

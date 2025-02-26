@@ -16,6 +16,6 @@ class FileFluxFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'file-flux';
+        return 'fileflux';
     }
 }

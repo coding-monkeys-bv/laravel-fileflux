@@ -12,7 +12,7 @@ use Illuminate\Validation\Rule;
 
 class FileFlux
 {
-    const API_ENDPOINT = 'https://file-flux.dev1.codingmonkeys.nl/api/v1/tasks';
+    const API_ENDPOINT = 'https://fileflux.dev1.codingmonkeys.nl/api/v1/tasks';
 
     protected $project;
 
@@ -30,20 +30,20 @@ class FileFlux
 
     public function __construct()
     {
-        $this->project = config('file-flux.project_id');
-        $this->webhook = config('file-flux.webhook.url') ?? config('app.url').'/file-flux/webhooks';
+        $this->project = config('fileflux.project_id');
+        $this->webhook = config('fileflux.webhook.url') ?? config('app.url').'/fileflux/webhooks';
     }
 
     public function project($project = null)
     {
-        $this->project = $project ?? config('file-flux.project_id');
+        $this->project = $project ?? config('fileflux.project_id');
 
         return $this;
     }
 
     public function webhook(?string $url = null)
     {
-        $this->webhook = $url ?? config('app.url').'/file-flux/webhooks';
+        $this->webhook = $url ?? config('app.url').'/fileflux/webhooks';
 
         return $this;
     }
@@ -78,11 +78,11 @@ class FileFlux
 
     public function preset(string $preset)
     {
-        if (! config()->has('file-flux.target_presets.'.$preset)) {
+        if (! config()->has('fileflux.target_presets.'.$preset)) {
             throw new InvalidPresetException($preset);
         }
 
-        $this->preset = config('file-flux.target_presets.'.$preset);
+        $this->preset = config('fileflux.target_presets.'.$preset);
         $this->usesPreset = true;
 
         $this->workflow($this->preset['workflow']);
@@ -133,7 +133,7 @@ class FileFlux
         $data = $this->validate($data);
 
         // Create task via API call.
-        return Http::withToken(config('file-flux.api_key'))
+        return Http::withToken(config('fileflux.api_key'))
             ->retry(3)
             ->acceptJson()
             ->post(self::API_ENDPOINT, $data);

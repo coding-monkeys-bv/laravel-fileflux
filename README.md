@@ -1,8 +1,8 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/codingmonkeys/file-flux.svg?style=flat-square)](https://packagist.org/packages/codingmonkeys/file-flux)
-[![Total Downloads](https://img.shields.io/packagist/dt/codingmonkeys/file-flux.svg?style=flat-square)](https://packagist.org/packages/codingmonkeys/file-flux)
-![GitHub Actions](https://github.com/codingmonkeys/file-flux/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/codingmonkeys/fileflux.svg?style=flat-square)](https://packagist.org/packages/codingmonkeys/fileflux)
+[![Total Downloads](https://img.shields.io/packagist/dt/codingmonkeys/fileflux.svg?style=flat-square)](https://packagist.org/packages/codingmonkeys/fileflux)
+![GitHub Actions](https://github.com/codingmonkeys/fileflux/actions/workflows/main.yml/badge.svg)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
@@ -11,7 +11,7 @@ This is where your description should go. Try and limit it to a paragraph or two
 You can install the package via composer:
 
 ```bash
-composer require codingmonkeys/laravel-file-flux
+composer require codingmonkeys/laravel-fileflux
 ```
 
 ## Usage
