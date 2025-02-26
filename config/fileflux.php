@@ -7,14 +7,14 @@ use Codingmonkeys\FileFlux\Enums\Audio\Extension;
 return [
 
     /**
-     * Set the API key for File Flux Pro. You can obtain this by creating one
-     * at https://filefluxpro.com
+     * Set the API key for File Flux Pro. You can obtain this 
+     * by creating one at https://filefluxpro.com
      */
     'api_key' => env('FILE_FLUX_API_KEY'),
 
     /**
-     * The project ID for File Flux Pro. You can obtain this by creating a project
-     * at https://filefluxpro.com
+     * The project ID for File Flux Pro. You can obtain this 
+     * by creating a project at https://filefluxpro.com
      */
     'project_id' => env('FILE_FLUX_PROJECT_ID'),
 
@@ -36,13 +36,7 @@ return [
         //         'extension' => Extension::MP3,
         //         'channels' => Channel::STEREO,
         //         'bitrate' => Bitrate::KBPS_128,
-        //         'watermark' => 'source/watermark.mp3',
-        //         'waveform' => [
-        //             'width' => 1800,
-        //             'height' => 180,
-        //             'bg_color' => '#FFFFFF',
-        //             'fg_color' => '#000000',
-        //         ],
+        //         'watermark' => 'source/watermark.mp3', // Enable this if you want to create an extra copy with audio watermark.
         //     ],
         // ],
     ],
