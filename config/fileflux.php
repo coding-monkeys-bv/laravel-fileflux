@@ -7,20 +7,20 @@ use Codingmonkeys\FileFlux\Enums\Audio\Extension;
 return [
 
     /**
-     * Set the API key for File Flux Pro. You can obtain this 
+     * Set the API key for FileFlux Pro. You can obtain this 
      * by creating one at https://filefluxpro.com
      */
-    'api_key' => env('FILE_FLUX_API_KEY'),
+    'api_key' => env('FILEFLUX_API_KEY'),
 
     /**
-     * The project ID for File Flux Pro. You can obtain this 
+     * The project ID for FileFlux Pro. You can obtain this 
      * by creating a project at https://filefluxpro.com
      */
-    'project_id' => env('FILE_FLUX_PROJECT_ID'),
+    'project_id' => env('FILEFLUX_PROJECT_ID'),
 
     'webhook' => [
-        'url' => env('FILE_FLUX_WEBHOOK_URL'),
-        'signature' => env('FILE_FLUX_WEBHOOK_SIGNATURE'),
+        'url' => env('FILEFLUX_WEBHOOK_URL'),
+        'signature' => env('FILEFLUX_WEBHOOK_SIGNATURE'),
     ],
 
     /**
