@@ -1,12 +1,15 @@
 {
     "name": "codingmonkeys/laravel-fileflux",
-    "description": "Convert your audio",
+    "description": "Convert your files with FileFlux Pro",
     "keywords": [
         "codingmonkeys",
         "laravel-fileflux",
         "fileflux",
         "fileflux-pro",
-        "file-flux-pro"
+        "file-flux-pro",
+        "laravel",
+        "laravel-fileflux",
+        "laravel-fileflux-pro"
     ],
     "homepage": "https://github.com/coding-monkeys-bv/laravel-fileflux",
     "license": "MIT",
@@ -39,7 +42,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true

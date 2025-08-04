@@ -17,36 +17,54 @@ composer require codingmonkeys/laravel-fileflux
 ## Usage
 
 ```php
-// Usage description here
+$response = (new FileFlux)
+    ->project('{project-id}')
+    ->webhook('https://{yourdomain.com}/file-flux/webhooks')
+    ->workflow('ConvertAudioWorkflow')
+    ->source('source/89-test copy.wav')
+    ->target([
+        'extension' => 'mp3',
+        'filename' => 'target/converted2222.mp3',
+        'channels' => 2,
+        'bitrate' => 128,
+    ])
+    ->convert();
 ```
 
-### Testing
-
-```bash
-composer test
+```php
+// Example with preset.
+$response = (new FileFlux)
+    ->source('source/large.wav')
+    ->preset('my-preset')
+    ->target('target/large.mp3')
+    ->convert();
 ```
 
-### Changelog
+```php
+$response = (new FileFlux)
+    ->project('{project-id}')
+    ->webhook('https://{yourdomain.com}/file-flux/webhooks')
+    ->workflow('ConvertAudioWorkflow')
+    ->source('source/89-test copy.wav')
+    ->target([
+        'format' => 'webp',
+        'quality' => 100,
+        'folder' => 'target/folder',
+        'pages' => 'all',
+        'resolution' => 150,
+    ])
+    ->convert();
+```
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+```php
+// Example with preset.
+$response = (new FileFlux)
+    ->source('source/my-pdf-file.pdf')
+    ->preset('pdf-to-image')
+    ->target('target/folder')
+    ->convert();
+```
 
 ### Security
 
 If you discover any security related issues, please email michael@codingmonkeys.nl instead of using the issue tracker.
-
-## Credits
-
--   [Michael](https://github.com/codingmonkeys)
--   [All Contributors](../../contributors)
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).

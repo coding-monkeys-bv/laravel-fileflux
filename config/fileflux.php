@@ -3,17 +3,18 @@
 use Codingmonkeys\FileFlux\Enums\Audio\Bitrate;
 use Codingmonkeys\FileFlux\Enums\Audio\Channel;
 use Codingmonkeys\FileFlux\Enums\Audio\Extension;
+use Codingmonkeys\FileFlux\Enums\Images\Format;
 
 return [
 
     /**
-     * Set the API key for FileFlux Pro. You can obtain this 
+     * Set the API key for FileFlux Pro. You can obtain this
      * by creating one at https://filefluxpro.com
      */
     'api_key' => env('FILEFLUX_API_KEY'),
 
     /**
-     * The project ID for FileFlux Pro. You can obtain this 
+     * The project ID for FileFlux Pro. You can obtain this
      * by creating a project at https://filefluxpro.com
      */
     'project_id' => env('FILEFLUX_PROJECT_ID'),
@@ -30,15 +31,42 @@ return [
      * your needs. Please read our documentation for more info and the available properties.
      */
     'target_presets' => [
-        // 'my-preset' => [
-        //     'workflow' => 'ConvertAudioWorkflow',
+
+        // Regular audio
+
+        // 'audio' => [
+        //     'workflow' => 'ConvertAudioWorkflow', // Name of the workflow to use
         //     'target' => [
-        //         'extension' => Extension::MP3,
-        //         'channels' => Channel::STEREO,
-        //         'bitrate' => Bitrate::KBPS_128,
-        //         'watermark' => 'source/watermark.mp3', // Enable this if you want to create an extra copy with audio watermark.
+        //         'extension' => Extension::MP3, // MP3, WAV
+        //         'channels' => Channel::STEREO, // MONO, STEREO
+        //         'bitrate' => Bitrate::KBPS_128, // KBPS_64, KBPS_128, KBPS_192, KBPS_256, KBPS_320
         //     ],
         // ],
+
+        // Watermarked audio
+
+        // 'mono-audio-with-watermark' => [
+        //     'workflow' => 'ConvertAudioWorkflow', // Name of the workflow to use
+        //     'target' => [
+        //         'extension' => Extension::MP3, // MP3, WAV
+        //         'channels' => Channel::MONO, // MONO, STEREO
+        //         'bitrate' => Bitrate::KBPS_128, // KBPS_64, KBPS_128, KBPS_192, KBPS_256, KBPS_320
+        //         'watermark' => 'audio/watermarks/watermark-mono.wav', // path to watermark file
+        //     ],
+        // ],
+
+        // PDF to Image
+
+        // 'pdf-to-image' => [
+        //     'workflow' => 'ConvertPdfWorkflow', // Name of the workflow to use
+        //     'target' => [
+        //         'quality' => 100, // 0 to 100
+        //         'format' => Format::JPG, // JPG, JPEG, PNG, WEBP
+        //         'pages' => 'all', // 'all', 'first' or specific page number
+        //         'resolution' => 150, // 72 to 600
+        //     ],
+        // ],
+
     ],
 
 ];
