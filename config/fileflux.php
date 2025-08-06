@@ -67,6 +67,82 @@ return [
         //     ],
         // ],
 
+        // Image (basic)
+
+        // 'image' => [
+        //     'workflow' => 'ConvertImageWorkflow', // Name of the workflow to use
+        //     'target' => [
+        //         'folder' => 'images/converted', // Folder to save the converted image
+        //         'format' => Format::WEBP, // JPG, JPEG, PNG, WEBP
+        //         'quality' => 90, // 0 to 100
+        //     ],
+        // ],
+
+        // Image (resize)
+
+        // 'image-resize' => [
+        //     'workflow' => 'ConvertImageWorkflow', // Name of the workflow to use
+        //     'target' => [
+        //         'folder' => 'images/converted', // Folder to save the converted image
+        //         'format' => Format::WEBP, // JPG, JPEG, PNG, WEBP
+        //         'quality' => 90, // 0 to 100 (not applicable for PNG)
+        //         'resize' => [
+        //             'width' => 800,
+        //             'height' => 600,
+        //         ],
+        //     ],
+        // ],
+
+        // Image (crop)
+
+        // 'image-crop' => [
+        //     'workflow' => 'ConvertImageWorkflow', // Name of the workflow to use
+        //     'target' => [
+        //         'folder' => 'images/converted', // Folder to save the converted image
+        //         'format' => Format::PNG, // JPG, JPEG, PNG, WEBP
+        //         'crop' => [
+        //             'mode' => 'cover',
+        //             'width' => 800,
+        //             'height' => 600,
+        //             'position' => 'center', // top, right, bottom, left, center, top-left, top-right, bottom-left, bottom-right
+        //         ],
+        //     ],
+        // ],
+
+        // Image (crop - cover)
+
+        // 'image-crop-cover' => [
+        //     'workflow' => 'ConvertImageWorkflow', // Name of the workflow to use
+        //     'target' => [
+        //         'folder' => 'images/converted', // Folder to save the converted image
+        //         'format' => Format::WEBP, // JPG, JPEG, PNG, WEBP
+        //         'quality' => 90, // 0 to 100
+        //         'crop' => [
+        //             'mode' => 'cover',
+        //             'width' => 200,
+        //             'height' => 200,
+        //         ],
+        //     ],
+        // ],
+
+        // Image (crop - coordinates)
+
+        // 'image-crop-coordinates' => [
+        //     'workflow' => 'ConvertImageWorkflow', // Name of the workflow to use
+        //     'target' => [
+        //         'folder' => 'images/converted', // Folder to save the converted image
+        //         'format' => Format::JPG, // JPG, JPEG, PNG, WEBP
+        //         'quality' => 90, // 0 to 100
+        //         'crop' => [
+        //             'mode' => 'crop',
+        //             'width' => 200,
+        //             'height' => 200,
+        //             'x' => 100, // Coordinate from the left of the original image (0 is the leftmost point)
+        //             'y' => 100, // Coordinate from the top of the original image (0 is the topmost point)
+        //         ],
+        //     ],
+        // ],
+
     ],
 
 ];
