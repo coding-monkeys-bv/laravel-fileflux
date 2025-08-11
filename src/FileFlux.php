@@ -12,7 +12,7 @@ use Illuminate\Validation\Rule;
 
 class FileFlux
 {
-    const API_ENDPOINT = 'https://filefluxpro.com/api/v1/tasks';
+    const API_ENDPOINT = 'https://app.filefluxpro.com/api/v1/tasks';
 
     protected $project;
 
